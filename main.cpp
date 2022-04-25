@@ -10,10 +10,10 @@ private:
 public:
     Complex() : Im(0.0), Re(0.0) {}
     Complex(double Re, double Im) : Im(Im), Re(Re) {}
-    double  getIm() {return Im;}
-    double  getRe() {return Re;}
-    void    setIm(double Im) {this->Im = Im;}
-    void    setRe(double Re) {this->Re = Im;}
+    double  get_Im() const {return Im;}
+    double  get_Re() const {return Re;}
+    void    set_Im(const double new_Im) {this->Im = new_Im;}
+    void    set_Re(const double new_Re) {this->Re = new_Re;}
     Complex &operator +=(const Complex &second)
     {
         Im += second.Im;
@@ -71,7 +71,7 @@ public:
         result /= second;
         return result;
     }
-    void print()
+    void print() const
     {
         cout << "Complex(" << Re;
         if(Im >= 0.0)
@@ -83,11 +83,14 @@ public:
 int main() {
     Complex the_complex_1(-2, 1);
     Complex the_complex_2(1, -1);
+    the_complex_1.set_Im(9.0);
+    the_complex_2.set_Re(-3.0);
     cout << "1 - ";
     the_complex_1.print();
     cout << endl;
     cout << "2 - ";
     the_complex_2.print();
+    cout << the_complex_1.get_Re() << " " << the_complex_1.get_Im();
     cout << endl;    
     {
         Complex the_complex_3 = the_complex_1 + the_complex_2;
