@@ -3,4 +3,5 @@
 !/*.c
 !/*.cpp
 !/*.h
+!/*.hpp
 !/CMakeLists.txt
